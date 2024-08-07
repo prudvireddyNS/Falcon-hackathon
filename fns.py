@@ -29,7 +29,7 @@ def extract_content(website_url):
     all_links = extract_links(website_url)
 
     scraped_contents = []
-    for link in all_links:
+    for i, link in enumerate(all_links):
         print(f"Scraping {link}")
         try:
             content = scrape_website(link)
@@ -37,6 +37,8 @@ def extract_content(website_url):
             print(e)
         if content:
             scraped_contents.append({'url': link, 'content': content})
+        # if i == 4:
+        #     break
 
     # for item in scraped_contents:
     #     print(f"URL: {item['url']}")
